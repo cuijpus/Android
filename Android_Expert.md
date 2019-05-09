@@ -2,7 +2,7 @@
 
 <table align="left">
   <tr align="left"> <th>要弄清楚啥问题</th> <th>详细分析</th> </tr>
-  <tr align="left"> <th>Android框架</th> <th></th></tr>
+  <tr align="left"> <th>Android框架</th> <th><a href = "https://github.com/cuijpus/Android/blob/master/Android_Architecture.md">android architecture</a></th></tr>
   <tr align="left"> <th>Binder脊梁</th> <th></th></tr>
   <tr align="left"> <th>应用管理框架</th> <th></th></tr>
   <tr align="left"> <th>Android设计原理</th> <th></th></tr>

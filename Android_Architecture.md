@@ -8,6 +8,7 @@
             <img src="https://source.android.com/security/images/android_software_stack.png" alt="Android layers" />
    </td>
 </table>
-[Android system architecture](https://source.android.com/devices/architecture)<br>
-![Android system architecture](https://source.android.com/devices/images/ape_fwk_all.png)<br>
+
+# Binder是脊梁
+![Android architecture](https://source.android.com/devices/images/ape_fwk_all.png)<br>
 

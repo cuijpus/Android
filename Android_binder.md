@@ -21,6 +21,8 @@ https://github.com/twitter-university/FibonacciBinderDemo <br>
 理解的不错，还有示例代码<br>
 https://www.blackhat.com/docs/us-15/materials/us-15-Gong-Fuzzing-Android-System-Services-By-Binder-Call-To-Escalate-Privilege.pdf <br>
 
+# Binder剖析
 
 # Binder练习
 [Android IPC/Binder Framework 实战（上）](https://www.zybuluo.com/mSolo/note/85865)<br>
+[Android IPC/Binder Framework 实战（下）](https://www.zybuluo.com/mSolo/note/85874)<br>

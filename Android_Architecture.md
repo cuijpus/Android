@@ -9,5 +9,5 @@
    </td>
 </table>
 [Android system architecture](https://source.android.com/devices/architecture)<br>
-![Android system architecture](https://source.android.com/devices/images/ape_fwk_all.png)<BR>
+![Android system architecture](https://source.android.com/devices/images/ape_fwk_all.png)<br>
 

@@ -23,6 +23,17 @@ https://www.blackhat.com/docs/us-15/materials/us-15-Gong-Fuzzing-Android-System-
 
 # Binder剖析
 
+## 网友剖析1
+这个系列，是该网友从网上总结的，结合自己的理解：<br>
+[Android跨进程通信IPC之10——Binder之Framework层Java篇](https://cloud.tencent.com/developer/article/1199107)<br>
+[Android跨进程通信IPC之11——AIDL](https://cloud.tencent.com/developer/article/1199109)<br>
+[android跨进程通信IPC之12——Binder的补充](https://cloud.tencent.com/developer/article/1199111)<br>
+[Android跨进程通信IPC之13——Binder总结](https://cloud.tencent.com/developer/article/1199113)<br>
+[Android跨进程通信IPC之14——其他IPC方式](https://cloud.tencent.com/developer/article/1199115)<br>
+
+# 能出师吗？
+[听说你Binder机制学的不错，来面试下这几个问题（一）](https://www.jianshu.com/p/adaa1a39a274)<br>
+
 # Binder练习
 [Android IPC/Binder Framework 实战（上）](https://www.zybuluo.com/mSolo/note/85865)<br>
 [Android IPC/Binder Framework 实战（下）](https://www.zybuluo.com/mSolo/note/85874)<br>

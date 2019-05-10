@@ -4,13 +4,12 @@
 https://elinux.org/Android_Binder <br>
 https://events.static.linuxfound.org/images/stories/slides/abs2013_gargentas.pdf <br>
 https://www.slideshare.net/jserv/android-ipc-mechanism <br>
-[袁辉辉 - Android Binder设计之道](https://doc.huodongjia.com/detail-6824.html)<br>
-https://pic.huodongjia.com/ganhuodocs/2017-12-29/1514518877.21.pdf
-https://www.nds.ruhr-uni-bochum.de/media/attachments/files/2012/03/binder.pdf
-http://www.kandroid.org/board/data/board/conference/file_in_body/1/4HistoryOfAndroidTechnology.pdf
-http://www.kandroid.org/board/data/board/conference/file_in_body/1/14th_kandroid_minmax_v11.pdf
-http://rts.lab.asu.edu/web_438/project_final/CSE_598_Android_Architecture_Binder.pdf
-http://rts.lab.asu.edu/web_438_2012/project_final/Talk%208%20AndroidArc_Binder.pdf
+https://pic.huodongjia.com/ganhuodocs/2017-12-29/1514518877.21.pdf <br>
+https://www.nds.ruhr-uni-bochum.de/media/attachments/files/2012/03/binder.pdf <br>
+http://www.kandroid.org/board/data/board/conference/file_in_body/1/4HistoryOfAndroidTechnology.pdf <br>
+http://www.kandroid.org/board/data/board/conference/file_in_body/1/14th_kandroid_minmax_v11.pdf <br>
+http://rts.lab.asu.edu/web_438/project_final/CSE_598_Android_Architecture_Binder.pdf <br>
+http://rts.lab.asu.edu/web_438_2012/project_final/Talk%208%20AndroidArc_Binder.pdf <br>
 
 里面有几个图很好，理解Binder.<br>
 http://tec.5lulu.com/detail/110k9n1h921dw8y30.html <br>

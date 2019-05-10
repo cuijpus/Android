@@ -4,6 +4,8 @@
 https://elinux.org/Android_Binder <br>
 https://events.static.linuxfound.org/images/stories/slides/abs2013_gargentas.pdf <br>
 https://www.slideshare.net/jserv/android-ipc-mechanism <br>
+[袁辉辉 - Android Binder设计之道](https://doc.huodongjia.com/detail-6824.html)<br>
+https://pic.huodongjia.com/ganhuodocs/2017-12-29/1514518877.21.pdf
 
 里面有几个图很好，理解Binder.<br>
 http://tec.5lulu.com/detail/110k9n1h921dw8y30.html <br>

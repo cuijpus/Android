@@ -50,3 +50,25 @@ https://www.blackhat.com/docs/us-15/materials/us-15-Gong-Fuzzing-Android-System-
 # Binder练习
 [Android IPC/Binder Framework 实战（上）](https://www.zybuluo.com/mSolo/note/85865)<br>
 [Android IPC/Binder Framework 实战（下）](https://www.zybuluo.com/mSolo/note/85874)<br>
+
+# 网络参考
+Binder源码分析
+深入分析Android Binder
+Binder系列 - Gityuan博客 | 袁辉辉博客
+Android Binder机制(1) ~ (12) - Wangkuiwu.github.io
+Binder机制-关于Binder的文章 - 泡在网上的日子
+理解Android Binder机制 - Qiangbo.space博客
+红茶一杯话Binder - 悠然红茶
+Binder框架解析
+Android Binder详解
+图文详解 Android Binder跨进程通信机制 原理
+理解Android Binder机制(1/3)：驱动篇-qiangbo.space
+理解Android Binder机制(2/3)：C++层-qiangbo.space
+理解Android Binder机制(3/3)：Java层-qiangbo.space
+Android Binder 分析–系列-light3moon
+Android学习笔记-Binder | Palance’s Blog
+android系统 -Binder - armwind的专栏 - CSDN博客
+Bettarwang的专栏 -Android Binder机制
+深入剖析Android系统 - binder - CSDN博客
+
+<a href="http://qiangbo.space/2017-01-15/AndroidAnatomy_Binder_Driver/" target="_blank" rel="noopener">理解Android Binder机制(1/3)：驱动篇-qiangbo.space</a>

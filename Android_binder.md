@@ -25,6 +25,17 @@ https://www.blackhat.com/docs/us-15/materials/us-15-Gong-Fuzzing-Android-System-
 
 ## 网友剖析1
 这个系列，是该网友从网上总结的，结合自己的理解：<br>
+[Android 研究](https://cloud.tencent.com/developer/column/5056)<br>
+[Android跨进程通信IPC之2——Bionic](https://cloud.tencent.com/developer/article/1199088)<br>
+[Android跨进程通信IPC之3——关于"JNI"的那些事](https://cloud.tencent.com/developer/article/1199091)<br>
+[Android跨进程通信IPC之4——AndroidIPC基础1](https://cloud.tencent.com/developer/article/1199093)<br>
+[Android跨进程通信IPC之4——AndroidIPC基础2](https://cloud.tencent.com/developer/article/1199095)<br>
+[Android跨进程通信IPC之5——Binder的三大接口](https://cloud.tencent.com/developer/article/1199097)<br>
+[Android跨进程通信IPC之6——Binder框架](https://cloud.tencent.com/developer/article/1199099)<br>
+[Android跨进程通信IPC之7——Binder相关结构体简介](https://cloud.tencent.com/developer/article/1199100)<br>
+[Android跨进程通信IPC之8——Binder驱动](https://cloud.tencent.com/developer/article/1199102)<br>
+[Android跨进程通信IPC之9——Binder之Framework层C++篇1](https://cloud.tencent.com/developer/article/1199104)<br>
+[Android跨进程通信IPC之9——Binder之Framework层C++篇2](https://cloud.tencent.com/developer/article/1199106)<br>
 [Android跨进程通信IPC之10——Binder之Framework层Java篇](https://cloud.tencent.com/developer/article/1199107)<br>
 [Android跨进程通信IPC之11——AIDL](https://cloud.tencent.com/developer/article/1199109)<br>
 [android跨进程通信IPC之12——Binder的补充](https://cloud.tencent.com/developer/article/1199111)<br>

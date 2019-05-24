@@ -17,6 +17,11 @@ struct binder_node {
 		struct hlist_node dead_node;
 	};
 	struct binder_proc *proc;
+	
+	/*
+	Binder实体中有一个Binder引用的哈希表，专门来存放该Binder实体的Binder引用。
+	这也如我们之前所说，每个Binder实体则可以多个Binder引用，而每个Binder引用则都只对应一个Binder实体。
+	*/
 	struct hlist_head refs;
 	int internal_strong_refs;
 	int local_weak_refs;

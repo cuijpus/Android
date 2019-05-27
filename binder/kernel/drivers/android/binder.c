@@ -8,6 +8,8 @@ static HLIST_HEAD(binder_procs);
 //#define HLIST_HEAD(name) struct hlist_head name = {  .first = NULL }
 //展开它
 static struct hlist_head binder_procs = {. first = NULL};
+//http://gityuan.com/2015/11/01/binder-driver/
+binder_procs表头和链表节点binder_proc之间的串接关系
 
 /*
 Binder实体，是各个Server以及ServiceManager在内核中的存在形式。

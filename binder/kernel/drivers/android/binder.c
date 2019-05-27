@@ -1,3 +1,8 @@
+//https://blog.csdn.net/zhanglei4214/article/details/6767288
+//linux内核hlist分析
+在Linux内核中，hlist（哈希链表）使用非常广泛。本文将对其数据结构和核心函数进行分析。
+和hlist相关的数据结构有两个（1）hlist_head (2)hlist_node
+
 //全局哈希表binder_procs(统计了所有的binder proc进程)
 static HLIST_HEAD(binder_procs);
 //#define HLIST_HEAD(name) struct hlist_head name = {  .first = NULL }

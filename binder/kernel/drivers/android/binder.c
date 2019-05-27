@@ -1,3 +1,8 @@
+//全局哈希表binder_procs(统计了所有的binder proc进程)
+static HLIST_HEAD(binder_procs);
+//#define HLIST_HEAD(name) struct hlist_head name = {  .first = NULL }
+//展开它
+static struct hlist_head binder_procs = {. first = NULL};
 
 /*
 Binder实体，是各个Server以及ServiceManager在内核中的存在形式。

@@ -11,13 +11,20 @@ static struct hlist_head binder_procs = {. first = NULL};
 //http://gityuan.com/2015/11/01/binder-driver/
 binder_procs表头和链表节点binder_proc之间的串接关系
 
-
+//binder_proc是描述进程上下文信息的，每一个用户空间的进程都对应一个binder_proc结构体
 struct binder_proc {
 	struct hlist_node proc_node; 	//全局链表 binder_procs 的node之一 (连接件)
 	struct rb_root threads; 	//binder_thread红黑树，存放指针，指向进程所有的binder_thread, 用于Server端
+					//threads成员和binder_thread->rb_node关联到一棵红黑树，从而将binder_proc和binder_thread关联起来。
+					
 	struct rb_root nodes;   	//binder_node红黑树，存放指针，指向进程所有的binder 对象
+					//nodes成员和binder_node->rb_node关联到一棵红黑树，从而将binder_proc和binder_node关联起来。
+					
 	struct rb_root refs_by_desc;	//binder_ref 红黑树，根据desc(service No) 查找对应的引用
+					//refs_by_desc成员和binder_ref->rb_node_desc关联到一棵红黑树，从而将binder_proc和binder_ref关联起来。
+					
 	struct rb_root refs_by_node;	//binder_ref 红黑树，根据binder_node 指针查找对应的引用
+					//refs_by_node成员和binder_ref->rb_node_node关联到一棵红黑树，从而将binder_proc和binder_ref关联起来。
 	struct list_head waiting_threads;
 	int pid;
 	struct task_struct *tsk;
@@ -44,7 +51,7 @@ struct binder_proc {
 
 struct binder_thread {
 	struct binder_proc *proc;
-	struct rb_node rb_node;
+	struct rb_node rb_node; //binder_pro->threads成员和binder_thread->rb_node关联到一棵红黑树，从而将binder_proc和binder_thread关联起来。
 	struct list_head waiting_thread_node;
 	int pid;
 	int looper;              /* only modified by this thread */
@@ -61,6 +68,7 @@ struct binder_thread {
 	struct task_struct *task;
 };
 
+//binder_node是Binder实体对应的结构体，它是Server在Binder驱动中的体现。
 /*
 Binder实体，是各个Server以及ServiceManager在内核中的存在形式。
 Binder实体实际上是内核中binder_node结构体的对象，它的作用是在内核中保存Server和ServiceManager的信息
@@ -72,7 +80,7 @@ struct binder_node {
 	spinlock_t lock;
 	struct binder_work work;
 	union {
-		struct rb_node rb_node;
+		struct rb_node rb_node; //binder_proc->nodes成员和binder_node->rb_node关联到一棵红黑树，从而将binder_proc和binder_node关联起来。
 		struct hlist_node dead_node;
 	};
 	struct binder_proc *proc;
@@ -122,8 +130,8 @@ Client要和Server通信，它就是通过保存一个Server对象的Binder引�
 Binder实体和Binder引用都是内核(即，Binder驱动)中的数据结构。
 每一个Server在内核中就表现为一个Binder实体，而每一个Client则表现为一个Binder引用。
 这样，每个Binder引用都对应一个Binder实体，而每个Binder实体则可以多个Binder引用。
-	       
 */
+//binder_ref是Binder引用对应的结构体，它是Client在Binder驱动中的体现。
 struct binder_ref {
 	/* Lookups needed: */
 	/*   node + proc => ref (transaction) */
@@ -131,8 +139,8 @@ struct binder_ref {
 	/*   node => refs + procs (proc exit) */
 	struct binder_ref_data data;
 	unsigned int dummy;
-	struct rb_node rb_node_desc;
-	struct rb_node rb_node_node;
+	struct rb_node rb_node_desc; //binder_proc->refs_by_desc成员和binder_ref->rb_node_desc关联到一棵红黑树，从而将binder_proc和binder_ref关联起来。
+	struct rb_node rb_node_node; //binder_proc->refs_by_node成员和binder_ref->rb_node_node关联到一棵红黑树，从而将binder_proc和binder_ref关联起来。
 	struct hlist_node node_entry;
 	struct binder_proc *proc;
 	struct binder_node *node;

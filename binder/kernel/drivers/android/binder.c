@@ -220,3 +220,4 @@ static int binder_open(struct inode *nodp, struct file *filp)
 
 	return 0;
 }
+

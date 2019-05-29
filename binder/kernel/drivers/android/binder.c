@@ -11,6 +11,38 @@ static struct hlist_head binder_procs = {. first = NULL};
 //http://gityuan.com/2015/11/01/binder-driver/
 binder_procs表头和链表节点binder_proc之间的串接关系
 
+
+struct binder_proc {
+	struct hlist_node proc_node; 	//全局链表 binder_procs 的node之一 (连接件)
+	struct rb_root threads; 	//binder_thread红黑树，存放指针，指向进程所有的binder_thread, 用于Server端
+	struct rb_root nodes;   	//binder_node红黑树，存放指针，指向进程所有的binder 对象
+	struct rb_root refs_by_desc;	//binder_ref 红黑树，根据desc(service No) 查找对应的引用
+	struct rb_root refs_by_node;	//binder_ref 红黑树，根据binder_node 指针查找对应的引用
+	struct list_head waiting_threads;
+	int pid;
+	struct task_struct *tsk;
+	struct files_struct *files;
+	struct mutex files_lock;
+	struct hlist_node deferred_work_node;
+	int deferred_work;
+	bool is_dead;
+
+	struct list_head todo;
+	struct binder_stats stats;
+	struct list_head delivered_death;
+	int max_threads;
+	int requested_threads;
+	int requested_threads_started;
+	int tmp_ref;
+	struct binder_priority default_priority;
+	struct dentry *debugfs_entry;
+	struct binder_alloc alloc;
+	struct binder_context *context;
+	spinlock_t inner_lock;
+	spinlock_t outer_lock;
+};
+
+
 /*
 Binder实体，是各个Server以及ServiceManager在内核中的存在形式。
 Binder实体实际上是内核中binder_node结构体的对象，它的作用是在内核中保存Server和ServiceManager的信息

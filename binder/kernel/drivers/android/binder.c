@@ -34,7 +34,10 @@ struct binder_proc {
 	int deferred_work;
 	bool is_dead;
 
-	struct list_head todo;
+	struct list_head todo; //todo是该进程的待处理事务队列，而wait则是等待队列。它们的作用是实现进程的等待/唤醒,
+				//当Server进程的wait等待队列为空时，Server就进入中断等待状态；当某Client向Server发送请求时，
+				//就将该请求添加到Server的todo待处理事务队列中，并尝试唤醒Server等待队列上的线程。如果，
+				//此时Server的待处理事务队列不为空，则Server被唤醒后；唤醒后，则取出待处理事务进行处理，处理完毕，则将结果返回给Client。
 	struct binder_stats stats;
 	struct list_head delivered_death;
 	int max_threads;
@@ -50,18 +53,18 @@ struct binder_proc {
 };
 
 struct binder_thread {
-	struct binder_proc *proc;
+	struct binder_proc *proc; // 线程所属的Binder进程
 	struct rb_node rb_node; //binder_pro->threads成员和binder_thread->rb_node关联到一棵红黑树，从而将binder_proc和binder_thread关联起来。
-	struct list_head waiting_thread_node;
+	struct list_head waiting_thread_node; 
 	int pid;
 	int looper;              /* only modified by this thread */
 	bool looper_need_return; /* can be written by other thread */
 	struct binder_transaction *transaction_stack;
-	struct list_head todo;
+	struct list_head todo; // 待处理的事务链表
 	bool process_todo;
 	struct binder_error return_error;
 	struct binder_error reply_error;
-	wait_queue_head_t wait;
+	wait_queue_head_t wait; // 等待队列
 	struct binder_stats stats;
 	atomic_t tmp_ref;
 	bool is_dead;
@@ -79,23 +82,27 @@ struct binder_node {
 	int debug_id;
 	spinlock_t lock;
 	struct binder_work work;
+	
+	//rb_node和dead_node属于一个union。如果该Binder实体还在使用，则通过rb_node将该节点链接到proc->nodes红黑树中；
+	//否则，则将该Binder实体通过dead_node链接到全局哈希表binder_dead_nodes中。
 	union {
 		struct rb_node rb_node; //binder_proc->nodes成员和binder_node->rb_node关联到一棵红黑树，从而将binder_proc和binder_node关联起来。
 		struct hlist_node dead_node;
 	};
-	struct binder_proc *proc;
+	struct binder_proc *proc; // 该binder实体所属的Binder进程
 	
 	/*
 	Binder实体中有一个Binder引用的哈希表，专门来存放该Binder实体的Binder引用。
 	这也如我们之前所说，每个Binder实体则可以多个Binder引用，而每个Binder引用则都只对应一个Binder实体。
 	*/
-	struct hlist_head refs;
+	struct hlist_head refs; // 该Binder实体的所有Binder引用所组成的链表
 	int internal_strong_refs;
 	int local_weak_refs;
 	int local_strong_refs;
 	int tmp_refs;
-	binder_uintptr_t ptr;
-	binder_uintptr_t cookie;
+	binder_uintptr_t ptr;	 // Binder实体在用户空间的地址(为Binder实体对应的Server在用户空间的本地Binder的引用)
+	binder_uintptr_t cookie; // Binder实体在用户空间的其他数据(为Binder实体对应的Server在用户空间的本地Binder自身)
+
 	struct {
 		/*
 		 * bitfield elements protected by
@@ -141,8 +148,8 @@ struct binder_ref {
 	unsigned int dummy;
 	struct rb_node rb_node_desc; //binder_proc->refs_by_desc成员和binder_ref->rb_node_desc关联到一棵红黑树，从而将binder_proc和binder_ref关联起来。
 	struct rb_node rb_node_node; //binder_proc->refs_by_node成员和binder_ref->rb_node_node关联到一棵红黑树，从而将binder_proc和binder_ref关联起来。
-	struct hlist_node node_entry;
-	struct binder_proc *proc;
-	struct binder_node *node;
+	struct hlist_node node_entry; // 关联到binder_node->refs哈希表中
+	struct binder_proc *proc;  // 该Binder引用所属的Binder进程
+	struct binder_node *node;  // 该Binder引用对应的Binder实体
 	struct binder_ref_death *death;
 };
